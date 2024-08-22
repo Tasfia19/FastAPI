@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
 
-from app.routers import news
+from app.routers import news, summary
 
 # app = FastAPI()
 
@@ -11,9 +11,8 @@ app = FastAPI(
     description="This is the API documentation for News Summary generating by AI.",
     # terms_of_service="http://example.com/terms/",
     contact={
-        "name": "Kalim Amzad",
-        "url": "https://growwithdata.net",
-        "email": "kalim.amzad.chy@gmail.com",
+        "name": "Tasfia Tabassum",
+        "email": "tasfiachy19@gmail.com",
     },
     # license_info = {
     #     "name": "MIT License",
@@ -24,6 +23,7 @@ app = FastAPI(
 )
 
 app.include_router(news.router)
+app.include_router(summary.router)
 
 @app.get("/")
 def read_root():
